@@ -1,0 +1,50 @@
+def salario = 2000
+pipeline {
+    agent any
+    stages {
+        stage("Top peliculas favoritas") {
+            steps {
+                echo("Mis peliculas favoritas son:\n1.Inception\n2.El Señor de los Anillos\n3.Kingsman\n4.Siempre a tu lado Hachiko\n5.Up")
+            }
+        }
+        
+        stage("Comida favorita") {
+            steps {
+                echo("Mi comida favorita es: Arroz con bogavante")
+            }
+        }
+        
+        stage("Signo zodiacal") {
+            steps {
+                echo("Mi signo zodiacal es Virgo")
+            }
+        }
+        
+        stage("Puesto Actual") {
+            steps {
+                echo("Mi puesto actual es: Desarrollador")
+            }
+        }
+        
+        stage("Salario Bruto") {
+            steps {
+                println "El salario bruto es " + salario
+            }
+        }
+        
+        stage("Salario Neto") {
+            steps {
+                calcularSalarioNeto(salario)
+            }
+        }
+    }
+}
+
+def calcularSalarioNeto(salario) {
+    if (salario > 1000) {
+        def neto = salario*0.8
+        println "El salario neto es: " + neto
+    } else {
+        println "El salario neto es: " + salario
+    }
+}
