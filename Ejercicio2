@@ -1,0 +1,28 @@
+def habitantes = 74743
+pipeline {
+    agent any
+    stages {
+        stage("Mostrar Clima") {
+            steps {
+                echo("El clima hoy en Ciudad Real es: Lluvia")
+            }
+        }
+        
+        stage("Mostrar Habitantes") {
+            steps {
+                println "El número de habitantes en Ciudad Real es: " + habitantes
+            }
+        }
+        
+        stage("Mostrar Población Neta") {
+            steps {
+                calcularPoblacionNeta(habitantes)
+            }
+        }
+    }
+}
+
+def calcularPoblacionNeta(habitantes) {
+    def pob = habitantes/2
+    println "La población neta es: " + pob
+}
