@@ -1,0 +1,24 @@
+
+pipeline {
+    agent any
+    stages {
+        stage("Ejercicio 4") {
+            steps {
+                script {
+                    def fecha = new Date()
+                    def hora = fecha.format("HH").toInteger()
+                    if(hora > 12) {
+                        echo("El usuario que ejecuta la función es: Amanda Sánchez\nEl ID de usuario es: AmandaSanchez212")
+                        mostrarVersionJava()
+                    } else {
+                        echo ("Aun no son las 12")
+                    }
+                }
+            }
+        }
+    }
+}
+
+def mostrarVersionJava() {
+    bat "java -version"
+}
