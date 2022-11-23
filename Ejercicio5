@@ -8,22 +8,23 @@ pipeline {
             steps {
                 script {
                     def dia = getDiaSemana()
-                    
-                    if (dia == 'Lunes') {
-                        echo ("El clima actual es Nublado")
-                    } 
-                    if (dia == 'Martes') {
-                        def suma = num1 + num2
-                        println suma
-                    }
-                    if (dia == 'Miercoles') {
-                        echo("El numero PI es: 5879687")
-                    }
-                    if (dia == 'Jueves') {
-                        echo("El usuario que ejecuta el proceso es: Amanda Sanchez")
-                    }
-                    if (dia == 'Viernes') {
-                        mostrarVersionJava()
+                    switch (dia) {
+                        case 'Lunes':
+                            echo ("El clima actual es Nublado")
+                            break
+                        case 'Martes':
+                            def suma = num1 + num2
+                            println suma
+                            break
+                        case 'Miercoles':
+                            echo("El numero PI es: 5879687")
+                            break
+                        case 'Jueves':
+                            echo("El usuario que ejecuta el proceso es: Amanda Sanchez")
+                            break
+                        case 'Viernes':
+                            mostrarVersionJava()
+                            break
                     }
                 }
             }
