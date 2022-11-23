@@ -43,7 +43,7 @@ def getDiaSemana() {
         7:"Domingo",
     ]
     
-    return "Viernes"
+    return map[dia]
 }
 
 def mostrarVersionJava() {
