@@ -1,3 +1,4 @@
+
 def num1 = 150
 def num2 = 350
 pipeline {
@@ -17,7 +18,7 @@ pipeline {
                             println suma
                             break
                         case 'Miercoles':
-                            echo("El numero PI es: 5879687")
+                            println "El numero PI es: " + Math.PI
                             break
                         case 'Jueves':
                             echo("El usuario que ejecuta el proceso es: Amanda Sanchez")
