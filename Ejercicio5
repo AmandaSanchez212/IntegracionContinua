@@ -1,0 +1,51 @@
+def num1 = 150
+def num2 = 350
+pipeline {
+    agent any 
+    
+    stages {
+        stage("Comprobar fecha") {
+            steps {
+                script {
+                    def dia = getDiaSemana()
+                    
+                    if (dia == 'Lunes') {
+                        echo ("El clima actual es Nublado")
+                    } 
+                    if (dia == 'Martes') {
+                        def suma = num1 + num2
+                        println suma
+                    }
+                    if (dia == 'Miercoles') {
+                        echo("El numero PI es: 5879687")
+                    }
+                    if (dia == 'Jueves') {
+                        echo("El usuario que ejecuta el proceso es: Amanda Sanchez")
+                    }
+                    if (dia == 'Viernes') {
+                        mostrarVersionJava()
+                    }
+                }
+            }
+        }
+    }
+}
+
+def getDiaSemana() {
+    def dia = new Date().getDay()
+    def map=[
+        1:"Lunes",
+        2:"Martes",
+        3:"Miercoles",
+        4:"Jueves",
+        5:"Viernes",
+        6:"Sabado",
+        7:"Domingo",
+    ]
+    
+    return "Viernes"
+}
+
+def mostrarVersionJava() {
+    bat "java -version"
+}
